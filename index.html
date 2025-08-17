@@ -48,7 +48,7 @@
             
             <div class="article-meta">
                 <div class="author-info">
-                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=64&h=64&fit=crop&crop=face" alt="Diana Wallace" class="author-avatar">
+                    <img src="https://ui-avatars.com/api/?name=Diana+Wallace&background=4f46e5&color=ffffff&size=64&bold=true" alt="Diana Wallace" class="author-avatar">
                     <div class="author-details">
                         <span class="author-name">Diana Wallace</span>
                         <span class="author-title">Tech Enthusiast & Content Creator</span>
@@ -213,10 +213,6 @@ Co-Authored-By: Claude <noreply@anthropic.com>"</code></pre>
                     <li>Clean, maintainable code that follows best practices</li>
                 </ul>
                 
-                <div class="key-takeaway">
-                    <h3>🚀 Live Demo & Repository</h3>
-                    <p>Want to see the actual portfolio website we built? Check out the live GitHub repository and see for yourself what's possible when human creativity meets AI capability.</p>
-                </div>
             </section>
             
             <section id="learning-curve" class="content-section">
@@ -435,41 +431,81 @@ Co-Authored-By: Claude <noreply@anthropic.com>"</code></pre>
             });
         }
 
-        // Highlight current section in TOC
+        // Improved scroll spy for TOC highlighting
         const sections = document.querySelectorAll('.content-section');
         const tocLinks = document.querySelectorAll('.toc-list a');
+        
+        // Calculate hero section height dynamically
+        function getHeroHeight() {
+            const hero = document.querySelector('.hero');
+            return hero ? hero.offsetHeight : 0;
+        }
 
         function highlightCurrentSection() {
+            const heroHeight = getHeroHeight();
+            const scrollPosition = window.scrollY;
+            const viewportOffset = window.innerHeight * 0.3; // 30% of viewport
+            
             let current = '';
-            const scrollPosition = window.scrollY + 150; // Offset for better highlighting
+            let closestSection = null;
+            let closestDistance = Infinity;
 
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionBottom = sectionTop + section.offsetHeight;
+                const rect = section.getBoundingClientRect();
+                const sectionTop = scrollPosition + rect.top;
+                const sectionBottom = sectionTop + rect.height;
                 
-                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                // Calculate distance from ideal viewing position (30% down from hero)
+                const idealPosition = scrollPosition + heroHeight + viewportOffset;
+                const sectionCenter = (sectionTop + sectionBottom) / 2;
+                const distance = Math.abs(idealPosition - sectionCenter);
+                
+                // Check if section is currently visible in viewport
+                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+                
+                if (isVisible && distance < closestDistance) {
+                    closestDistance = distance;
+                    closestSection = section;
                     current = section.getAttribute('id');
                 }
             });
 
+            // Fallback: if no section is in ideal position, use the first visible section
+            if (!current) {
+                sections.forEach(section => {
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top < window.innerHeight * 0.5 && rect.bottom > 0) {
+                        current = section.getAttribute('id');
+                        return;
+                    }
+                });
+            }
+
+            // Update active states
             tocLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
+                if (current && link.getAttribute('href') === '#' + current) {
                     link.classList.add('active');
                 }
             });
         }
 
-        // Throttle scroll events for better performance
-        let scrollTimeout;
-        window.addEventListener('scroll', () => {
-            if (scrollTimeout) {
-                clearTimeout(scrollTimeout);
+        // Use requestAnimationFrame for smoother performance
+        let ticking = false;
+        function updateScrollSpy() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    highlightCurrentSection();
+                    ticking = false;
+                });
+                ticking = true;
             }
-            scrollTimeout = setTimeout(highlightCurrentSection, 10);
-        });
+        }
 
-        // Initial highlight
+        // Listen for scroll events
+        window.addEventListener('scroll', updateScrollSpy, { passive: true });
+        
+        // Initial highlight and recalculate on resize
         highlightCurrentSection();
 
         // Handle window resize
