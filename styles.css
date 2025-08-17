@@ -254,22 +254,38 @@ li {
 .author-info {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 1.25rem;
+    padding: 0.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.08);
+    transition: background 0.3s ease;
+}
+
+.author-info:hover {
+    background: rgba(255, 255, 255, 0.12);
 }
 
 .author-avatar {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
     border-radius: 50%;
-    border: 3px solid rgba(255, 255, 255, 0.4);
+    border: 3px solid rgba(255, 255, 255, 0.5);
     object-fit: cover;
-    transition: transform 0.2s ease, border-color 0.2s ease;
-    /* To use your own image, replace the src URL in the HTML with your image path */
+    object-position: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* Professional profile photo optimizations */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    backface-visibility: hidden;
+    will-change: transform;
 }
 
 .author-avatar:hover {
-    transform: scale(1.05);
-    border-color: rgba(255, 255, 255, 0.6);
+    transform: scale(1.08);
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .author-details {
