@@ -3,22 +3,24 @@
    ================= */
 
 :root {
-    /* Sophisticated Monochromatic Color Palette */
-    --color-black: #000000;
-    --color-dark-gray: #5C4E4E;
-    --color-medium-gray: #988686;
-    --color-light-gray: #D1D0D0;
-    --color-white: #FFFFFF;
+    /* Nature-Inspired Green Color Palette */
+    --color-family-tree: #a8b491;     /* Light accent */
+    --color-highland: #7d9164;        /* Medium-light accent */
+    --color-jolly-green: #607548;     /* Medium accent */
+    --color-zen-garden: #475833;      /* Medium-dark accent */
+    --color-turtle-skin: #2e3b1f;     /* Dark accent */
+    --color-darkness: #15190b;        /* Darkest color */
+    --color-white: #FFFFFF;           /* White for contrast */
     
     /* Semantic Color Variables */
     --bg-primary: var(--color-white);
-    --bg-secondary: var(--color-light-gray);
-    --bg-accent: var(--color-medium-gray);
-    --text-primary: var(--color-black);
-    --text-secondary: var(--color-dark-gray);
-    --text-muted: var(--color-medium-gray);
-    --border-color: var(--color-light-gray);
-    --shadow-color: rgba(0, 0, 0, 0.1);
+    --bg-secondary: #f8faf6;          /* Very light green tint */
+    --bg-accent: var(--color-family-tree);
+    --text-primary: var(--color-darkness);
+    --text-secondary: var(--color-turtle-skin);
+    --text-muted: var(--color-zen-garden);
+    --border-color: var(--color-highland);
+    --shadow-color: rgba(21, 25, 11, 0.1);
 }
 
 * {
@@ -99,7 +101,7 @@ li {
    Layout Structure
    ================= */
 .hero {
-    background: linear-gradient(135deg, var(--color-dark-gray) 0%, var(--color-black) 100%);
+    background: linear-gradient(135deg, var(--color-turtle-skin) 0%, var(--color-darkness) 100%);
     color: var(--color-white);
     padding: 4rem 3rem;
     text-align: center;
@@ -267,7 +269,7 @@ li {
    ================= */
 .highlight-box {
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-    border-left: 4px solid var(--color-dark-gray);
+    border-left: 4px solid var(--color-jolly-green);
     padding: 2rem;
     border-radius: 12px;
     margin: 2rem 0;
@@ -275,14 +277,14 @@ li {
 }
 
 .highlight-box h3 {
-    color: var(--text-secondary);
+    color: var(--color-jolly-green);
     margin-top: 0;
     margin-bottom: 1rem;
 }
 
 .key-takeaway {
     background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
-    border: 1px solid var(--color-medium-gray);
+    border: 1px solid var(--color-highland);
     border-radius: 16px;
     padding: 2.5rem;
     margin: 3rem 0;
@@ -291,7 +293,7 @@ li {
 }
 
 .key-takeaway h3 {
-    color: var(--text-secondary);
+    color: var(--color-zen-garden);
     margin-bottom: 1rem;
     font-size: 1.5rem;
 }
@@ -300,32 +302,32 @@ li {
    Code Blocks
    ================= */
 .code-block {
-    background: var(--color-black);
+    background: var(--color-darkness);
     border-radius: 12px;
     overflow: hidden;
     margin: 2rem 0;
     box-shadow: 0 10px 30px var(--shadow-color);
-    border: 1px solid var(--color-dark-gray);
+    border: 1px solid var(--color-turtle-skin);
 }
 
 .code-header {
-    background: var(--color-dark-gray);
+    background: var(--color-turtle-skin);
     padding: 1rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid var(--color-medium-gray);
+    border-bottom: 1px solid var(--color-zen-garden);
 }
 
 .code-title {
-    color: var(--color-light-gray);
+    color: var(--color-family-tree);
     font-weight: 500;
     font-size: 0.875rem;
     font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
 }
 
 .copy-btn {
-    background: var(--color-medium-gray);
+    background: var(--color-highland);
     color: var(--color-white);
     border: none;
     padding: 0.5rem 1rem;
@@ -337,7 +339,7 @@ li {
 }
 
 .copy-btn:hover {
-    background: var(--color-dark-gray);
+    background: var(--color-jolly-green);
 }
 
 .code-block pre {
@@ -348,7 +350,7 @@ li {
 }
 
 .code-block code {
-    color: var(--color-light-gray);
+    color: var(--color-family-tree);
     font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
     font-size: 0.875rem;
     line-height: 1.7;
@@ -380,7 +382,7 @@ li {
 }
 
 .feature-card h4 {
-    color: var(--text-secondary);
+    color: var(--color-jolly-green);
     margin-bottom: 1rem;
 }
 
@@ -405,7 +407,7 @@ li {
 }
 
 .lesson-number {
-    background: linear-gradient(135deg, var(--color-dark-gray) 0%, var(--color-black) 100%);
+    background: linear-gradient(135deg, var(--color-jolly-green) 0%, var(--color-zen-garden) 100%);
     color: var(--color-white);
     width: 48px;
     height: 48px;
@@ -434,7 +436,7 @@ li {
    Call to Action
    ================= */
 .cta-section {
-    background: linear-gradient(135deg, var(--color-dark-gray) 0%, var(--color-black) 100%);
+    background: linear-gradient(135deg, var(--color-zen-garden) 0%, var(--color-turtle-skin) 100%);
     color: var(--color-white);
     padding: 4rem 2rem;
     text-align: center;
@@ -462,7 +464,7 @@ li {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    background: linear-gradient(135deg, var(--color-medium-gray) 0%, var(--color-dark-gray) 100%);
+    background: linear-gradient(135deg, var(--color-highland) 0%, var(--color-jolly-green) 100%);
     color: var(--color-white);
     text-decoration: none;
     padding: 1rem 2rem;
@@ -518,7 +520,7 @@ li {
 }
 
 .social-links a:hover {
-    color: var(--color-dark-gray);
+    color: var(--color-jolly-green);
 }
 
 .blog-footer p {
@@ -591,13 +593,13 @@ li {
     }
 
     .cta-button {
-        background: var(--color-dark-gray) !important;
+        background: var(--color-zen-garden) !important;
         color: var(--color-white) !important;
         box-shadow: none !important;
     }
 
     .lesson-number {
-        background: var(--color-dark-gray) !important;
+        background: var(--color-zen-garden) !important;
         box-shadow: none !important;
     }
 
@@ -758,19 +760,19 @@ li {
 /* Focus styles for keyboard navigation */
 a:focus,
 button:focus {
-    outline: 2px solid var(--color-dark-gray);
+    outline: 2px solid var(--color-jolly-green);
     outline-offset: 2px;
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
     .hero {
-        background: var(--color-black) !important;
+        background: var(--color-darkness) !important;
         color: var(--color-white) !important;
     }
 
     .code-block {
-        background: var(--color-black) !important;
+        background: var(--color-darkness) !important;
         border: 2px solid var(--color-white) !important;
     }
 
