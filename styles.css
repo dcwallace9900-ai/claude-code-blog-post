@@ -70,7 +70,7 @@ li {
    Blog Post Layout
    ================= */
 .blog-post {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     background: #ffffff;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
@@ -79,22 +79,32 @@ li {
     margin-top: 2rem;
     margin-bottom: 2rem;
     position: relative;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: 
+        "toc hero"
+        "toc content"
+        "toc content"
+        "cta cta";
+    gap: 0;
 }
 
 /* =================
    Table of Contents
    ================= */
 .table-of-contents {
+    grid-area: toc;
     position: sticky;
     top: 2rem;
-    background: rgba(255, 255, 255, 0.95);
+    height: fit-content;
+    background: rgba(248, 250, 252, 0.98);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(103, 126, 234, 0.2);
-    border-radius: 15px;
-    padding: 1.5rem;
-    margin: 2rem;
+    border-right: 1px solid rgba(103, 126, 234, 0.2);
+    padding: 2rem 1.5rem;
     z-index: 100;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.05);
+    border-top-left-radius: 20px;
 }
 
 .toc-header {
@@ -133,29 +143,41 @@ li {
     color: #6b7280;
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     display: block;
-    padding: 0.5rem;
+    padding: 0.75rem 1rem;
     border-radius: 8px;
-    font-size: 0.975rem;
+    font-size: 0.9rem;
+    border-left: 3px solid transparent;
+    margin-bottom: 0.25rem;
 }
 
-.toc-list a:hover,
+.toc-list a:hover {
+    color: #4f46e5;
+    background: rgba(79, 70, 229, 0.05);
+    border-left-color: rgba(79, 70, 229, 0.3);
+    transform: translateX(2px);
+}
+
 .toc-list a.active {
     color: #4f46e5;
     background: rgba(79, 70, 229, 0.1);
+    border-left-color: #4f46e5;
+    font-weight: 600;
 }
 
 /* =================
    Hero Section
    ================= */
 .hero {
+    grid-area: hero;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 4rem 2rem;
+    padding: 4rem 3rem;
     text-align: center;
     position: relative;
     overflow: hidden;
+    border-top-right-radius: 20px;
 }
 
 .hero::before {
@@ -250,9 +272,11 @@ li {
    Main Content
    ================= */
 .content {
-    padding: 4rem 2rem;
+    grid-area: content;
+    padding: 4rem 3rem;
     max-width: 800px;
     margin: 0 auto;
+    width: 100%;
 }
 
 .content-section {
@@ -431,10 +455,13 @@ li {
    Call to Action
    ================= */
 .cta-section {
+    grid-area: cta;
     background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
     color: white;
     padding: 4rem 2rem;
     text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .cta-content {
@@ -490,6 +517,7 @@ li {
     border-top: 1px solid #e2e8f0;
     padding: 3rem 2rem;
     text-align: center;
+    margin-top: 2rem;
 }
 
 .footer-content {
@@ -640,17 +668,42 @@ li {
 /* =================
    Responsive Design
    ================= */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .blog-post {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "toc"
+            "hero"
+            "content"
+            "cta";
         margin: 1rem;
         border-radius: 15px;
     }
 
     .table-of-contents {
-        margin: 1rem;
-        padding: 1rem;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid rgba(103, 126, 234, 0.2);
+        border-radius: 0;
+        padding: 1.5rem;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05);
     }
 
+    .hero {
+        border-radius: 0;
+        padding: 3rem 2rem;
+    }
+
+    .content {
+        padding: 3rem 2rem;
+    }
+
+    .cta-section {
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 768px) {
     .toc-toggle {
         display: block;
     }
@@ -680,6 +733,10 @@ li {
 
     .content {
         padding: 2rem 1rem;
+    }
+
+    .table-of-contents {
+        padding: 1rem;
     }
 
     .feature-grid {
@@ -732,6 +789,10 @@ li {
 
     .content {
         padding: 1.5rem 0.75rem;
+    }
+
+    .table-of-contents {
+        padding: 0.75rem;
     }
 
     .highlight-box,
