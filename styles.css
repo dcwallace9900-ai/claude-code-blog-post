@@ -19,6 +19,8 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 /* =================
@@ -79,13 +81,17 @@ li {
     position: relative;
     overflow: hidden;
     width: 100%;
+    z-index: 1;
+    flex-shrink: 0;
 }
 
 .content-container {
     display: flex;
-    min-height: calc(100vh - 200px);
+    flex: 1;
     background: #ffffff;
     position: relative;
+    width: 100%;
+    min-height: 0;
 }
 
 .blog-post {
@@ -105,10 +111,11 @@ li {
     overflow-y: auto;
     position: sticky;
     top: 0;
-    height: 100vh;
-    z-index: 100;
+    height: calc(100vh - 0px);
+    z-index: 10;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
+    align-self: flex-start;
 }
 
 .toc-header {
