@@ -69,29 +69,44 @@ li {
 }
 
 /* =================
-   Blog Post Layout
+   Layout Structure
    ================= */
-.blog-post {
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 4rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.content-container {
     display: flex;
-    min-height: 100vh;
+    min-height: calc(100vh - 200px);
     background: #ffffff;
     position: relative;
+}
+
+.blog-post {
+    background: #ffffff;
+    width: 100%;
 }
 
 /* =================
    Table of Contents Sidebar
    ================= */
 .table-of-contents {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 25%;
-    height: 100vh;
+    min-width: 300px;
     background: #ffffff;
     border-right: 1px solid #e2e8f0;
     padding: 2rem 1.5rem;
     overflow-y: auto;
-    z-index: 1000;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    z-index: 100;
     box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
 }
@@ -207,14 +222,6 @@ li {
 /* =================
    Hero Section
    ================= */
-.hero {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-    padding: 4rem 3rem;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
 
 .hero::before {
     content: '';
@@ -308,13 +315,12 @@ li {
    Main Content Area
    ================= */
 .main-content {
-    margin-left: 25%;
     width: 75%;
-    min-height: 100vh;
     background: #ffffff;
+    overflow-y: auto;
 }
 
-.content {
+.blog-post {
     padding: 4rem 3rem;
     max-width: 800px;
     margin: 0 auto;
@@ -501,6 +507,7 @@ li {
     color: white;
     padding: 4rem 2rem;
     text-align: center;
+    width: 100%;
 }
 
 .cta-content {
@@ -556,6 +563,7 @@ li {
     border-top: 1px solid #e2e8f0;
     padding: 3rem 2rem;
     text-align: center;
+    width: 100%;
 }
 
 .footer-content {
@@ -707,8 +715,17 @@ li {
    Responsive Design
    ================= */
 @media (max-width: 1024px) {
+    .content-container {
+        flex-direction: column;
+    }
+
     .table-of-contents {
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 300px;
+        height: 100vh;
+        z-index: 1000;
         transform: translateX(-100%);
     }
 
@@ -717,7 +734,6 @@ li {
     }
 
     .main-content {
-        margin-left: 0;
         width: 100%;
     }
 
@@ -729,7 +745,7 @@ li {
         padding: 3rem 2rem;
     }
 
-    .content {
+    .blog-post {
         padding: 3rem 2rem;
     }
 }
@@ -753,7 +769,7 @@ li {
         align-items: flex-start;
     }
 
-    .content {
+    .blog-post {
         padding: 2rem 1rem;
     }
 
@@ -809,7 +825,7 @@ li {
         padding: 2rem 0.75rem;
     }
 
-    .content {
+    .blog-post {
         padding: 1.5rem 0.75rem;
     }
 
