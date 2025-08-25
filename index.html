@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How Claude Code Made Me a Developer in 3 Hours | Diana Wallace</title>
+    <title>From Zero to Hero: How Claude Code Turned Me Into a Web Development Wizard in One Evening | Diana Wallace</title>
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Discover how Claude Code transformed a complete beginner into a confident web developer in just one evening. A detailed journey from zero coding experience to building real projects.">
@@ -14,14 +14,14 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://dianawall.github.io/claude-code-blog-post/">
-    <meta property="og:title" content="How Claude Code Made Me a Developer in 3 Hours">
+    <meta property="og:title" content="From Zero to Hero: How Claude Code Turned Me Into a Web Development Wizard in One Evening">
     <meta property="og:description" content="Discover how Claude Code transformed a complete beginner into a confident web developer in just one evening.">
     <meta property="og:image" content="https://dianawall.github.io/claude-code-blog-post/og-image.jpg">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://dianawall.github.io/claude-code-blog-post/">
-    <meta property="twitter:title" content="How Claude Code Made Me a Developer in 3 Hours">
+    <meta property="twitter:title" content="From Zero to Hero: How Claude Code Turned Me Into a Web Development Wizard in One Evening">
     <meta property="twitter:description" content="Discover how Claude Code transformed a complete beginner into a confident web developer in just one evening.">
     <meta property="twitter:image" content="https://dianawall.github.io/claude-code-blog-post/og-image.jpg">
     
@@ -37,15 +37,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation menu">☰</button>
+    
     <!-- Hero Section - Full Width -->
     <header class="hero">
         <div class="hero-content">
-            <h1 class="hero-title">How Claude Code Made Me a Developer in 3 Hours</h1>
+            <h1 class="hero-title">From Zero to Hero: How Claude Code Turned Me Into a Web Development Wizard in One Evening</h1>
             <p class="hero-subtitle">A novice's journey through AI-powered coding that will blow your mind</p>
             
             <div class="article-meta">
                 <div class="author-info">
-                    <img src="profile.png" alt="Diana Wallace - Tech Enthusiast & Content Creator" class="author-avatar">
+                    <img src="profile.png" alt="Diana Wallace" class="author-avatar">
                     <div class="author-details">
                         <span class="author-name">Diana Wallace</span>
                         <span class="author-title">Tech Enthusiast & Content Creator</span>
@@ -59,9 +62,35 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="main-content">
-        <article class="blog-post">
+    <!-- Content Container -->
+    <div class="content-container">
+        <!-- Navigation Sidebar -->
+        <nav class="table-of-contents" id="toc">
+            <div class="toc-header">
+                <h3>Navigation</h3>
+                <button class="toc-toggle" aria-label="Toggle table of contents">✕</button>
+            </div>
+            <ol class="toc-list">
+                <li><a href="#the-setup">The Setup</a></li>
+                <li><a href="#the-challenge">The Challenge</a></li>
+                <li><a href="#the-magic-moment">The Magic Moment</a></li>
+                <li><a href="#real-time-development">Real-Time Development</a></li>
+                <li><a href="#technical-breakdown">Technical Breakdown</a></li>
+                <li><a href="#the-collaboration">The Collaboration</a></li>
+                <li><a href="#git-workflow">Git Workflow</a></li>
+                <li><a href="#the-results">The Results</a></li>
+                <li><a href="#learning-curve">Learning Curve</a></li>
+                <li><a href="#game-changing-realizations">Game-Changing Realizations</a></li>
+                <li><a href="#cursor-integration">Cursor Integration</a></li>
+                <li><a href="#future-implications">What This Means for the Future</a></li>
+                <li><a href="#advice">My Advice</a></li>
+                <li><a href="#conclusion">The Bottom Line</a></li>
+            </ol>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <article class="blog-post">
             <section id="the-setup" class="content-section">
                 <h2>The Setup: A Complete Beginner Meets Claude Code</h2>
                 <p>Picture this: I'm sitting at my MacBook, staring at an empty terminal, with absolutely zero experience using Claude Code. I'd heard the buzz about Anthropic's revolutionary AI coding assistant, but honestly? I was skeptical. Could an AI really help someone like me—armed with just a technical documentation background and a bootcamp certificate—build something genuinely impressive?</p>
@@ -296,8 +325,9 @@ Co-Authored-By: Claude <noreply@anthropic.com>"</code></pre>
                     <p>The future of development is here, and it's more accessible than you ever imagined. Want to see the actual portfolio website we built? Check out the live GitHub repository and see for yourself what's possible when human creativity meets AI capability.</p>
                 </div>
             </section>
-        </article>
-    </main>
+            </article>
+        </main>
+    </div>
 
     <!-- Call to Action - Full Width -->
     <section class="cta-section">
@@ -317,14 +347,65 @@ Co-Authored-By: Claude <noreply@anthropic.com>"</code></pre>
     <footer class="blog-footer">
         <div class="footer-content">
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/dc-wallace/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                <a href="https://github.com/dcwallace9900-ai/claude-code-portfolio" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://twitter.com/dianawall" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://linkedin.com/in/dianawall" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="https://github.com/dianawall" target="_blank" rel="noopener noreferrer">GitHub</a>
             </div>
-            <p>&copy; 2025 Diana Wallace. Built with Claude Code.</p>
+            <p>&copy; 2024 Diana Wallace. Built with Claude Code.</p>
         </div>
     </footer>
 
     <script>
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const sidebar = document.getElementById('toc');
+        const tocToggle = document.querySelector('.toc-toggle');
+        const tocList = document.querySelector('.toc-list');
+
+        // Toggle mobile sidebar
+        mobileMenuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+
+        // Close sidebar when clicking on a link (mobile)
+        document.querySelectorAll('.toc-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 1024) {
+                    sidebar.classList.remove('open');
+                }
+            });
+        });
+
+        // Close sidebar when clicking outside (mobile)
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024 && 
+                !sidebar.contains(e.target) && 
+                !mobileMenuToggle.contains(e.target) && 
+                sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+        });
+
+        // TOC toggle for mobile collapse
+        tocToggle.addEventListener('click', () => {
+            tocList.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 20; // Account for any fixed headers
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
         // Copy code functionality
         function copyCode(button) {
             const codeBlock = button.closest('.code-block').querySelector('code');
@@ -349,6 +430,16 @@ Co-Authored-By: Claude <noreply@anthropic.com>"</code></pre>
                 }, 2000);
             });
         }
+
+        // Simple navigation - no scroll tracking
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 1024) {
+                sidebar.classList.remove('open');
+                tocList.classList.remove('hidden');
+            }
+        });
     </script>
 </body>
 </html>
